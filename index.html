@@ -142,10 +142,10 @@ width: 100%;
      <div id="caja">
      <div id="idedtcn"> 
 &#128130;
-<input id="idedtnom" type="text"  value="Some text..."></div> <br>
+<input id="idedtnom" type="text"  value=""></div> <br>
       <div id="idedtcp"> &#128272;<input id="idedtpass"  type="text" value=""></div>     
  
-<div id="idcbt"><button id="idbt" onclick="btmostr()">ok</button></div>
+<div id="idcbt"><button id="idbt" onclick="validarform()">ok</button></div>
 
      </div>
 
@@ -175,8 +175,8 @@ var almacen;
 });*/
 
 
-myFunction();
-function myFunction() {
+myFunctiont();
+function myFunctiont() {
 
 
 
@@ -184,7 +184,7 @@ function myFunction() {
                
                 url:   'almacen.json',
                  dataType:  'json',
-                type:  'get',
+                type:  'post',
                 cache:false,
                 success:  function (data) { 
                 
@@ -201,16 +201,20 @@ var nom;
 var pass;
 var varok=0;
 function validarform(){
+
+   myFunctiont();
 nom= document.getElementById("idedtnom").value;
  pass= document.getElementById("idedtpass").value;
 
- for (var i in almacen){if(almacen[i].nombre==nom&&almacen[i].clave){
+ for (var i in almacen){
+    if(almacen[i].nombre==nom&&almacen[i].clave==pass){
 
 ocultar("caja");
 mostrar("canvasArea");
-//ini();
-
- }}
+ini();
+alert(almacen[i].clave);
+ }
+}
 
 
 
