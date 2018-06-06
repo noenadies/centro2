@@ -2,14 +2,14 @@
 <html>
 <head> <script src="jquery-3.3.1.min.js"></script>
     <meta charset="UTF-8"/>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #000000;
             overflow: hidden;
 
-        }
+		}
         #canvasArea {
             margin-left: auto;
             margin-right: auto;
@@ -130,9 +130,9 @@ width: 100%;
 
 
 
-    </style>
+	</style>
     <!-- Libs and GDJS core files : -->
-        <script src="code.js"></script>
+		<script src="code.js"></script>
 
 
 
@@ -150,7 +150,7 @@ width: 100%;
      </div>
 
     
-    <script>
+	<script>
 function ocultar(st){
 
     document.getElementById(st).style.display = "none";
@@ -168,7 +168,7 @@ validarform();
 
 var almacen;
 
-$.getJSON('almacen.json', function(data) {
+$.getJSON('https://noenadies.github.io/jsonnavescd/almacen.json', function(data) {
   almacen=data;
 
     //data is the JSON string
@@ -181,7 +181,7 @@ nom= document.getElementById("idedtnom").value;
  pass= document.getElementById("idedtpass").value;
 
  for (var i in almacen){if(almacen[i].nombre==nom&&almacen[i].clave){
-
+varok=lmacen[i].msn;
 ocultar("caja");
 mostrar("canvasArea");
 
@@ -192,13 +192,13 @@ mostrar("canvasArea");
 
 }   
 
-       ocultar("canvasArea");
+
 
     (function() {
         //Initialization
 
- 
-
+        ocultar("canvasArea");
+if(almacen["uno"]){
         gdjs.registerObjects();
         gdjs.registerBehaviors();
         gdjs.registerGlobalCallbacks();
@@ -216,8 +216,8 @@ mostrar("canvasArea");
         game.loadAllAssets(function() {
             game.startGameLoop();
         });
-    })();
+   } })();
 
-    </script>
+	</script>
 </body>
 </html>
