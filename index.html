@@ -168,11 +168,35 @@ validarform();
 
 var almacen;
 
-$.getJSON('almacen.json', function(data) {
+/*$.postJSON('almacen.json', function(data) {
   almacen=data;
 
     //data is the JSON string
-});
+});*/
+
+
+myFunction();
+function myFunction() {
+
+
+
+              $.ajax({
+               
+                url:   'almacen.json',
+                 dataType:  'json',
+                type:  'post',
+                cache:false,
+                success:  function (data) { 
+                
+                    almacen=data;console.log(" alma "+almacen);
+                }
+                });
+      }
+
+
+
+
+
 var nom;
 var pass;
 var varok=0;
