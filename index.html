@@ -208,20 +208,14 @@ nom= document.getElementById("idedtnom").value;
 
 ocultar("caja");
 mostrar("canvasArea");
-
+ini();
 
  }}
 
 
 
-}   
+}  function ini(){
 
-       ocultar("canvasArea");
-
-    (function() {
-        //Initialization
-
- 
 
         gdjs.registerObjects();
         gdjs.registerBehaviors();
@@ -240,7 +234,11 @@ mostrar("canvasArea");
         game.loadAllAssets(function() {
             game.startGameLoop();
         });
-    })();
+} 
+
+       ocultar("canvasArea");
+
+
 
     </script>
 </body>
