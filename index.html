@@ -1,250 +1,429 @@
-<!DOCTYPE html>
-<html>
-<head> <script src="jquery-3.3.1.min.js"></script>
-    <meta charset="UTF-8"/>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            overflow: hidden;
 
-        }
-        #canvasArea {
-            margin-left: auto;
-            margin-right: auto;
-            overflow: hidden;
-        }
 
-        #caja{
+//https://www.tutorialspoint.com/firebase/firebase_queries.htm
 
-            position: relative;
-top: 100px;
+var  aFkennedy=[];
+var personk =[];
+var entrak=false;
+var cantkennedy=0;
 
-            margin: 0 auto;
-            width: 200px;
-            height: 200px;
-            -webkit-box-shadow: 5px 5px 15px 5px #000000; 
-box-shadow: 5px 5px 15px 5px #000000;
-font-family: Georgia, serif;
-font-size: 14px;
-letter-spacing: 2px;
-word-spacing: 2px;
-color: #000000;
-font-weight: normal;
-text-decoration: none;
-font-style: normal;
-font-variant: normal;
-text-transform: none;
 
-background: #F5F5F5 url("") no-repeat scroll 0 0;
-border: 22px solid #1C6EA4;
--webkit-box-shadow: 5px 5px 15px 5px #10B0FF; 
-box-shadow: 5px 5px 15px 5px #10B0FF;
+var  aFusaquen=[];
+var pusaquen =[];
+var entrausaque=false;
+var cantsaquen=0;
+
+var  aFChapinero=[];
+var pChapinero =[];
+var entraChapinero=false;
+var cantchapinero=0;
+
+function crearparrafos() {
+   
 
 
 
 
-        }
-
-        #idedtnom{
-
-position: relative;
-right: -26px;
-
-            width:70%;
-        }
-
-                #idedtcn{
-
-position: relative;
-top: 29px;
-
-            width:100%;
-        }
-
-#idedtcp{
-position: relative;
-top: 29px;
-
-            width:100%;
-
-}
-
- #idedtpass{
-
-position: relative;
-right: -30px;
-
-            width:70%;
-        }
 
 
-#idcbt{
-margin: 0 auto;
-position: relative;
-top: 90px;
 
-            width:70%;
+
+   for(var i  in fstodos){
+    if(fstodos[i].localidadn=="KENNEDY"){entrak=true; cantkennedy=cantkennedy+1;
+personk = { cedula : fstodos[i].cedula, departamento:fstodos[i].departamento, dirpuesto :fstodos[i].dirpuesto,  email :fstodos[i].email,
+  localidadc :fstodos[i].localidadc,  localidadn : fstodos[i].localidadn,  mesa : fstodos[i].mesa,  municipio : fstodos[i].municipio,
+  nombre :fstodos[i].nombre,  puesto : fstodos[i].puesto,  refenciado :fstodos[i].refenciado,  wap : fstodos[i].wap};aFkennedy.push(personk); } 
+
+if(fstodos[i].localidadn=="USAQUEN"){entrausaque=true;cantsaquen=cantsaquen+1;
+pusaquen = { cedula : fstodos[i].cedula, departamento:fstodos[i].departamento, dirpuesto :fstodos[i].dirpuesto,  email :fstodos[i].email,
+  localidadc :fstodos[i].localidadc,  localidadn : fstodos[i].localidadn,  mesa : fstodos[i].mesa,  municipio : fstodos[i].municipio,
+  nombre :fstodos[i].nombre,  puesto : fstodos[i].puesto,  refenciado :fstodos[i].refenciado,  wap : fstodos[i].wap};aFusaquen.push(pusaquen); } 
+
+if(fstodos[i].localidadn=="CHAPINERO"){ entraChapinero=true;cantchapinero=cantchapinero+1;
+pChapinero = { cedula : fstodos[i].cedula, departamento:fstodos[i].departamento, dirpuesto :fstodos[i].dirpuesto,  email :fstodos[i].email,
+  localidadc :fstodos[i].localidadc,  localidadn : fstodos[i].localidadn,  mesa : fstodos[i].mesa,  municipio : fstodos[i].municipio,
+  nombre :fstodos[i].nombre,  puesto : fstodos[i].puesto,  refenciado :fstodos[i].refenciado,  wap : fstodos[i].wap};aFChapinero.push(pChapinero); } 
+
+
 
 }
 
 
-
-#idbt{
-margin: 0 auto;
-position: relative;
-top: 0px;
-width: 100%;
-          
-
-}
+          if(entrausaque){ for(var i in aFusaquen){
+ var para = document.createElement("h6");var t = document.createTextNode("-Nombre: "+aFusaquen[i].nombre+" -cedula: "+aFusaquen[i].cedula+
+  " -Localidad: "+aFusaquen[i].localidadn+" -puesto: "+aFusaquen[i].puesto+" -mesa: "+aFusaquen[i].mesa +" -refenciado: "+aFusaquen[i].refenciado+" "+cantsaquen
+  ); para.appendChild(t);document.getElementById("idiforme").appendChild(para);document.getElementById("idiforme").appendChild(para);
+         }}
 
 
-#idbt{
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
+ if(entraChapinero){ for(var i in aFChapinero){
+ var para = document.createElement("h6");var t = document.createTextNode("-Nombre: "+aFChapinero[i].nombre+" -cedula: "+aFChapinero[i].cedula+
+  " -Localidad: "+aFChapinero[i].localidadn+" -puesto: "+aFChapinero[i].puesto+" -mesa: "+aFChapinero[i].mesa +" -refenciado: "+aFChapinero[i].refenciado+" "+cantchapinero
+  ); para.appendChild(t);document.getElementById("idiforme").appendChild(para);document.getElementById("idiforme").appendChild(para);
+          }}
 
-#idbt:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
+
+
+  if(entrak){for(var i in aFkennedy){
+ var para = document.createElement("h6");var t = document.createTextNode("-Nombre: "+aFkennedy[i].nombre+" -cedula: "+aFkennedy[i].cedula+
+  " -Localidad: "+aFkennedy[i].localidadn+" -puesto: "+aFkennedy[i].puesto+" -mesa: "+aFkennedy[i].mesa +" -refenciado: "+aFkennedy[i].refenciado+""+cantkennedy
+  ); para.appendChild(t);document.getElementById("idiforme").appendChild(para);document.getElementById("idiforme").appendChild(para);
+        }}
+  
+  
 }
 
 
 
-    </style>
-    <!-- Libs and GDJS core files : -->
-        <script src="code.js"></script>
-
-
-
-</head>
-<body>
-    <div id="canvasArea"></div>
-     <div id="caja">
-     <div id="idedtcn"> 
-&#128130;
-<input id="idedtnom" type="text"  value=""></div> <br>
-      <div id="idedtcp"> &#128272;<input id="idedtpass"  type="text" value=""></div>     
- 
-<div id="idcbt"><button id="idbt" onclick="validarform()">ok</button></div>
-
-     </div>
-
-    
-    <script>
-function ocultar(st){
-
-    document.getElementById(st).style.display = "none";
-}
 function mostrar(st){
+  
+ document.getElementById(st).style.display = "block";
+}
+function quitar(st){
 
-    document.getElementById(st).style.display = "block";
+ document.getElementById(String(st)).style.display = "none";
 }
 
-function btmostr(){
 
-validarform();
+quitar("map");
+
+quitar("idiforme");
+
+function btidinforme(){
+quitar("cajamayor");
+mostrar("idiforme");
 }
 
 
-var almacen;
 
-/*$.postJSON('almacen.json', function(data) {
-  almacen=data;
+function bttraefinf(){
+ // quitar("idiforme");
+crearparrafos();
 
-    //data is the JSON string
-});*/
-
-
-myFunctiont();
-function myFunctiont() {
-
-
-
-              $.ajax({
-               
-                url:   'almacen.json',
-                 dataType:  'json',
-                type:  'post',
-                cache:false,
-                success:  function (data) { 
-                
-                    almacen=data;console.log(" alma "+almacen);
-                }
-                });
-      }
-
-
-
-
-
-var nom;
-var pass;
-var varok=0;
-function validarform(){
-
-   myFunctiont();
-nom= document.getElementById("idedtnom").value;
- pass= document.getElementById("idedtpass").value;
-
- for (var i in almacen){
-    if(almacen[i].nombre==nom&&almacen[i].clave==pass){
-
-ocultar("caja");
-mostrar("canvasArea");
-ini();
-alert(almacen[i].clave);
- }
 }
 
 
 
 
-}  function ini(){
-
-
-        gdjs.registerObjects();
-        gdjs.registerBehaviors();
-        gdjs.registerGlobalCallbacks();
-
-        var game = new gdjs.RuntimeGame(gdjs.projectData, {});
-
-        //Create a renderer
-        var canvasArea = document.getElementById("canvasArea");
-        game.getRenderer().createStandardCanvas(canvasArea);
-
-        //Bind keyboards/mouse/touch events
-        game.getRenderer().bindStandardEvents(game.getInputManager(), window, document);
-
-        //Load all assets and start the game
-        game.loadAllAssets(function() {
-            game.startGameLoop();
-        });
-} 
-
-       ocultar("canvasArea");
 
 
 
-    </script>
-</body>
-</html>
+
+
+
+  var config = {
+    apiKey: "AIzaSyDDeEsPxBYxzisg4GDOpmYbHBLvIw6L_IY",
+    authDomain: "mejorvargaslleras-4fd2e.firebaseapp.com",
+    databaseURL: "https://mejorvargaslleras-4fd2e.firebaseio.com",
+    projectId: "mejorvargaslleras-4fd2e",
+    storageBucket: "mejorvargaslleras-4fd2e.appspot.com",
+    messagingSenderId: "912759721594"
+  };
+  firebase.initializeApp(config);
+
+
+
+var fstodos={};
+var usereg="userregis";
+var vvalorst="mesa111";
+
+var vh2c="cedula";
+var vh2dp="departamento";
+var vh2drp="dirpuesto";
+
+var vh2dru="diruser";
+var vh2em="email";
+var vh2lc="localidad";
+var vh2lcn="localidad";
+var vh2m="mesa";
+var vh2mp="municipio";
+var vh2nb="nombre";
+var vh2p="puesto";
+var vh2ref="refenciado";
+var vh2w="wap";
+
+
+
+
+
+var vh1="uno";
+
+
+
+
+var vvh2c="cedula";
+var vvh2dp="departamento";
+var vvh2drp="dirpuesto";
+
+var vvh2dru="diruser";
+var vvh2em="email";
+var vvh2lc="localidad";
+var vvh2lcn="localidad";
+var vvh2m="mesa";
+var vvh2mp="municipio";
+var vvh2nb="nombre";
+var vvh2p="puesto";
+var vvh2ref="refenciado";
+var vvh2w="wap";
+
+var hacerregisnew=false;
+var vcamregist=false;
+
+
+
+
+fitraerdatos(usereg);
+
+function fitraerdatos(st)
+{ firebase.database().ref().child(st).once('value').then(function(snapshot) {
+    var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+   fstodos=snapshot.val();
+  });
+
+
+}
+
+function fisubedatos(st,p,h1,h2)
+{
+ firebase.database().ref().child(p).child(h1).child(h2).set(st);
+
+
+}
+
+
+
+function cambiarregistro(p,h1){
+
+
+  fisubedatos(vvh2c,p,h1,vh2c);
+  fisubedatos(vvh2dp,p,h1,vh2dp);
+  fisubedatos(vvh2drp,p,h1,vh2drp);
+  fisubedatos(vvh2dru,p,h1,vh2dru);
+  fisubedatos(vvh2em,p,h1,vh2em);
+  fisubedatos(vvh2lc,p,h1,vh2lc);
+  fisubedatos(vvh2m,p,h1,vh2m);
+  fisubedatos(vvh2mp,p,h1,vh2mp);
+  fisubedatos(vvh2nb,p,h1,vh2nb);
+  fisubedatos(vvvh2p,p,h1,vvh2p);
+  fisubedatos(vvh2ref,p,h1,vh2ref);
+  fisubedatos(vvh2w,p,h1,vh2w);
+
+}
+
+function ffi(){
+
+
+for(var i in s){
+
+  console.log(s[i]);
+}
+
+cedulasigualnewreg();
+if(hacerregisnew){
+//cambioderegistro();
+
+nuevochid();
+//cambioderegistro();
+}
+//cambioderegistro();
+
+cambioderegistro();
+}
+function cedulasigualnewreg(){
+hacerregisnew=true;
+alert("en nuevo registro ");
+var cedulaedi="1234a";
+for (var i in fstodos){
+if(cedulaedi==fstodos[i].cedula){
+
+  alert(fstodos[i].cedula);
+    alert(" no registrando");
+  hacerregisnew=false;
+}}
+if(hacerregisnew==true){
+  alert("registrando ok");
+hacerregisnew=true;
+}
+
+
+}
+
+
+function cedulasigualcambreg(){
+vcamregist=true;
+var cedulaedi="1234";
+alert("en cambio de registro");
+for (var i in fstodos){
+if(cedulaedi==fstodos[i].cedula){
+
+  alert(fstodos[i].cedula);
+    alert("cam reg");
+  vcamregist=true;
+}}
+if(vcamregist==false){
+  alert("no camb reg");
+vcamregist=false;
+}
+
+
+}
+
+
+function nuevochid(){
+     
+
+vvh2c="12345";
+vh1="uno";
+vvh2dp="und";
+vvh2drp="ditt";
+vvh2dru="udrr";
+vvh2em="@r";
+vvh2lc="kennr";
+vvh2lcn="kennr";
+vvh2m="mq";
+vvh2mp="mor";
+vvh2nb="gimor";
+vvvh2p="potr";
+vvh2ref="mir";
+vvh2w="333r";
+
+myFunction();
+getnombreycedula();
+
+var person = {
+  cedula : vvh2c,
+  departamento:vvh2dp,
+  dirpuesto :vvh2drp,
+  email :vvh2em,
+  localidadc : vvh2lc,
+  localidadn : vvh2lcn,
+  mesa : vvh2m,
+  municipio : vvh2mp,
+  nombre : vvh2nb,
+  puesto : vvvh2p,
+  refenciado :vvh2ref,
+  wap : vvh2w
+}
+
+      
+      firebase.database().ref().child(usereg).push(person);
+
+}
+
+
+function cambioderegistro(){
+
+//cedulasigualcambreg();
+
+vcamregist=true;
+
+if(vcamregist){
+vh1="uno";
+//vvh2c="12345";
+
+vvh2dp="undbogot";
+vvh2drp="ditt";
+vvh2dru="udrr";
+vvh2em="@r";
+vvh2lc="kennr";
+vvh2ln="kennr";
+vvh2m="21b";
+vvh2mp="mor";
+vvh2nb="gimor";
+vvvh2p="potr";
+vvh2ref="mir";
+vvh2w="33377r";
+
+
+  //fisubedatos(vvh2dp,usereg,vh1,vh2dp);
+cambiarregistro(usereg,vh1);
+
+  alert("si  secambio el registro");
+}
+else{
+  alert("no secambio el registro");
+}
+}
+
+
+
+
+
+// text area  todo text area
+
+
+
+  var  array=[];
+  var s="Departamento: BOGOTA D.C.Municipio:";
+function myFunction() {
+  //  var x = document.getElementById("myTextarea").value;
+  var str = document.getElementById("myTextarea").value; 
+ 
+  str.replace("\n"," ");
+  str.replace("Código localidad:", "Códigolocalidad:");
+
+   var res = str.replace(" ", ",");
+      array=str.split("\n");
+  document.getElementById("demo").innerHTML = res;
+  var indi=0;
+for(var i in array){
+  console.log(i+" i "+ array[i]);
+  if(array[i]=="Departamento:")
+  {vvh2dp=array[parseInt(i)+1];
+    console.log(i+" a "+ array[parseInt(i)+1]); 
+        }
+        if(array[i]=="Municipio:")
+  {vvh2mp=array[parseInt(i)+1];
+
+    console.log(i+" Municipio: "+ array[parseInt(i)+1]); 
+        }
+
+
+         if(array[i]=="Código localidad:")
+  {vvh2lc=array[parseInt(i)+1];
+    console.log(i+" Código localidadxxxx: "+ array[parseInt(i)+1]); 
+        }
+         if(array[i]=="Nombre localidad:")
+  {vvh2lcn=array[parseInt(i)+1];
+    console.log(i+" Nombre localidad: "+ array[parseInt(i)+1]); 
+        }
+
+         if(array[i]=="Puesto:")
+  {vvvh2p=array[parseInt(i)+1];
+
+    console.log(i+" Puesto: "+ array[parseInt(i)+1]); 
+        }
+
+        if(array[i]=="Dirección del puesto:")
+  {vvh2drp=array[parseInt(i)+1];
+
+    console.log(i+" Dirección del puesto: "+ array[parseInt(i)+1]); 
+        }
+
+        if(array[i]=="Mesa:")
+  {vvh2m=array[parseInt(i)+1];
+
+    console.log(i+" Mesa: "+ array[parseInt(i)+1]); 
+        }
+
+}
+}
+
+function getnombreycedula(){
+  vvh2nb=  document.getElementById("idnombre").value;
+
+
+  vvh2c=document.getElementById("idcedula").value;
+    vvh2em=document.getElementById("idemail").value;
+   vvh2w=document.getElementById("idwhastapp").value;
+    vvh2ref=document.getElementById("idref").value;
+
+   vvh2nb=vvh2nb.toUpperCase();
+     vvh2em=vvh2em.toUpperCase();
+      vvh2ref=vvh2ref.toUpperCase();
+
+  //alert(vvh2nb+""+vvh2c);
+
+}
+
+
